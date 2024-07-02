@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
    var serverVersion = new MySqlServerVersion(new Version(8, 0, 33));
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(connectionString));
+    options.UseMySql(connectionString,serverVersion));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
